@@ -4,7 +4,6 @@ createApp({
     data() {
         return {
             baseUrl: 'https://vue3-course-api.hexschool.io/v2',
-            // apiPath: 'haojing',
             user: {
                 username: '',
                 password: '',
@@ -22,13 +21,11 @@ createApp({
 
                     // 取出token和expired的值後 儲存至cookie; 設定token期限
                     document.cookie = `haojingToken=${token}; expires=${new Date(expired)};`;
-                    console.log(res);
                     // 全域至products頁面
                     window.location = 'products.html';
                 })
                 .catch((err) => {
                     alert(err.response.data.message);
-                    console.log(err);
                 });
         }
     }

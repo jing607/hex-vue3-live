@@ -17,7 +17,6 @@ createApp({
           this.getData();
         })
         .catch(err => {
-          console.log(err);
           window.location = 'login.html';
         })
     },
@@ -36,7 +35,6 @@ createApp({
       /(?:(?:^|.*;\s*)haojingToken\s*\=\s*([^;]*).*$)|^.*$/,
       "$1",
     );
-    console.log(token);
     // 管理控制台的api必須帶入token，要帶入header裡
     axios.defaults.headers.common['Authorization'] = token;
 
