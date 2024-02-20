@@ -8,7 +8,7 @@ const app = createApp({
     return {
       products: [],
       showProduct: {
-        imageUrl: '',
+        imagesUrl: [],
       },
       modalProduct: null, // productModal
       modalDel: null, // delModal
@@ -33,13 +33,17 @@ const app = createApp({
     openModal(status, product) { // status是 new or edit；product是給編輯 有產品時用的
       if (status === 'new') {
         this.showProduct = {
-          imageUrl: [],
+          imagesUrl: [],
         };
         // 更嚴謹的話要加上 isNew
         this.isNew = true;
         this.modalProduct.show()
       } else if (status === 'edit') {
         this.showProduct = { ...product };
+        // 判斷 imagesUrl 是不是陣列，不是的話就補進去。這樣無論是否有資料都可新增
+        if (!Array.isArray(this.showProduct.imagesUrl)) {
+          this.showProduct.imagesUrl = [];
+        }
         this.isNew = false;
         this.modalProduct.show();
       } else if (status === 'delete') {
@@ -81,6 +85,11 @@ const app = createApp({
           this.getProducts();
           this.modalDel.hide();
         })
+    },
+
+    createImages() {
+      this.showProduct.imagesUrl = [];
+      this.showProduct.imagesUrl.push("");
     },
   },
 
