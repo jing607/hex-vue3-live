@@ -71,9 +71,10 @@ const app = createApp({
           this.getProducts();
           this.modalProduct.hide();
           this.showProduct = {};
+          alert('新增產品成功')
         })
         .catch(err => {
-          console.log(err);
+          alert(err.response.data.message);
         });
     },
 
@@ -84,6 +85,10 @@ const app = createApp({
         .then((res) => {
           this.getProducts();
           this.modalDel.hide();
+          alert('刪除成功')
+        })
+        .catch(err => {
+          alert(err.response.data.message);
         })
     },
 
@@ -101,6 +106,12 @@ const app = createApp({
     );
     // 管理控制台的api必須帶入token，要帶入header裡
     axios.defaults.headers.common['Authorization'] = token;
+
+    // 檢查用戶是否已登入
+    if (!token) {
+      window.location.href = './login.html';
+      return;
+    }
 
     this.getProducts();
 
