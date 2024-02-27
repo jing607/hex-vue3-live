@@ -1,5 +1,5 @@
-import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
-// import * as VeeValidate from 'https://unpkg.com/vee-validate@next/dist/vee-validate.esm.js';
+// import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+const { createApp } = Vue;
 
 
 const { defineRule, Form, Field, ErrorMessage, configure } = VeeValidate;
@@ -38,11 +38,6 @@ const app = createApp ({
             }
         };
     },
-    component: {
-        VForm: Form,
-        VField: Field,
-        ErrorMessage: ErrorMessage,
-    },
     methods: {
         getProducts() {
             const api = `${baseUrl}/api/${apiPath}/products/all`;
@@ -62,9 +57,8 @@ const app = createApp ({
 })
 
 // Register components globally
-// app.component('VForm', Form);
-// app.component('VField', Field);
-// app.component('ErrorMessage', ErrorMessage);
-// app.use(VeeValidate);
+app.component('VForm', Form);
+app.component('VField', Field);
+app.component('ErrorMessage', ErrorMessage);
 
 app.mount('#app')
