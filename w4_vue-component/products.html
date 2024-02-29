@@ -12,7 +12,7 @@
     <div class="container">
       <div class="text-end mt-4">
         <button 
-          @click="openModal('new')" 
+          @click.prevent="openModal('new')" 
           class="btn btn-primary">
           建立新的產品
         </button>
@@ -61,13 +61,13 @@
             <td>
               <div class="btn-group">
                 <button 
-                  @click="openModal('edit', product)"
+                  @click.prevent="openModal('edit', product)"
                   type="button" 
                   class="btn btn-outline-primary btn-sm">
                   編輯
                 </button>
                 <button 
-                  @click="openModal('delete', product)"
+                  @click.prevent="openModal('delete', product)"
                   type="button" 
                   class="btn btn-outline-danger btn-sm">
                   刪除

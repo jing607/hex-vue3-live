@@ -48,7 +48,7 @@ export default {
               <h4 class="mb-3">多圖新增</h4>
 
               <!-- 判斷 showProduct.imagesUrl 是一個陣列，如果是陣列，才會被顯示 能夠被新增 -->
-              <div v-if="Array.isArray(showProduct.imagesUrl)">
+              <template v-if="Array.isArray(showProduct.imagesUrl)">
                 <div v-for="(img, key) in showProduct.imagesUrl" :key="key + 123">
                   <img :src="img" class="img-fluid">
                   <input 
@@ -73,7 +73,7 @@ export default {
                     刪除圖片
                   </button>
                 </div>
-              </div>
+              </template>
               <div v-else>
                 <button @click="createImages" class="btn btn-outline-primary btn-sm d-block w-100">
                   新增圖片
@@ -104,7 +104,7 @@ export default {
                   >
                 </div>
                 <div class="mb-3 col-md-6">
-                  <label for="price" class="form-label">單位</label>
+                  <label for="unit" class="form-label">單位</label>
                   <input 
                     id="unit" 
                     v-model="showProduct.unit"
