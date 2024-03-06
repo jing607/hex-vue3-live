@@ -18,10 +18,6 @@
       <user-modal :temp-product="tempProduct" :add-to-cart="addToCart" ref="userModal"></user-modal>
       <div class="container">
         <div class="mt-4">
-          <!-- 產品Modal -->
-          
-          <!-- 產品Modal -->
-         
           <table class="table align-middle">
             <thead>
               <tr>
@@ -68,7 +64,7 @@
           </table>
           <!-- 購物車列表 -->
           <div class="text-end">
-            <button class="btn btn-outline-danger" type="button">清空購物車</button>
+            <button class="btn btn-outline-danger" type="button" @click="deleteAllCarts">清空購物車</button>
           </div>
           <table class="table align-middle">
             <thead>
@@ -138,6 +134,8 @@
             </tfoot>
           </table>
         </div>
+
+        <!-- form -->
         <div class="my-5 row justify-content-center">
           <v-form ref="form" class="col-md-6" v-slot="{ errors }" @submit="createOrder">
             <div class="mb-3">
@@ -241,7 +239,7 @@
                   <div class="h5" v-if="tempProduct.origin_price === tempProduct.price">{{ tempProduct.origin_price }} €</div>
                   <div v-else>
                     <del class="h6">原價 {{ tempProduct.origin_price}} €</del>
-                    <div class="h5">現在只要 {{ product.price }} €</div>
+                    <div class="h5">現在只要 {{ tempProduct.price }} €</div>
                   </div>
                   
                   <div>
