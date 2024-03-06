@@ -62,6 +62,7 @@
               </tr>
             </tbody>
           </table>
+
           <!-- 購物車列表 -->
           <div class="text-end">
             <button class="btn btn-outline-danger" type="button" @click="deleteAllCarts">清空購物車</button>
@@ -117,7 +118,7 @@
                   </td>
                   <td class="text-end">
                     <!-- <small class="text-success">折扣價：</small> -->
-                    {{ cart.total }} €
+                    {{ (cart.total)?.toFixed(2) }} €
                   </td>
                 </tr>
               </template>
@@ -125,7 +126,7 @@
             <tfoot>
               <tr>
                 <td colspan="3" class="text-end">總計</td>
-                <td class="text-end">{{ carts.final_total }} €</td>
+                <td class="text-end">{{ (carts.final_total)?.toFixed(2) }} €</td>
               </tr>
               <!-- <tr>
                 <td colspan="3" class="text-end text-success">折扣價</td>
