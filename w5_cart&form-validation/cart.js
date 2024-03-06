@@ -128,16 +128,28 @@ const app = createApp ({
             axios.delete(api)
                 .then(res => {
                     alert('已成功移除商品');
-                    console.log(res);
                     this.loadingStatus.cartQtyLoading = '';
                     this.getCart();
                 })
+                .catch((err) => {
+                    alert(err.response.data.message);
+                });
+          },
+          removeAllCartItems() {
+            const api = `${baseUrl}/api/${apiPath}/carts`;
+            axios.delete(api)
+                .then(res => {
+                    alert('已清空購物車');
+                    this.getCart();
+                })
+                .catch((err) => {
+                    alert(err.response.data.message);
+                });
           },
           getCart() { // 將購物車的資料傳遞進來
             const api = `${baseUrl}/api/${apiPath}/cart`;
             axios.get(api)
                 .then(res => {
-                    console.log(res);
                     this.carts = res.data.data;
                 })
                 .catch((err) => {
