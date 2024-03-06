@@ -31,7 +31,10 @@ const userModal = {
     methods: {
         open() {
             this.productModal.show()
-        }
+        },
+        close() {
+            this.productModal.hide()
+        },
     },
     watch: {
         tempProduct() {
@@ -92,19 +95,15 @@ const app = createApp ({
             this.loadingStatus.addCartLoading = product_id;
             axios.post(api, { data: order })
                 .then(res => {
-                    console.log(res.data);
-                    // alert('商品成功加入購物車');
+                    alert('商品成功加入購物車');
                     // 在商品加入完成後再把 loading 清掉，恢復成未點擊的樣子
                     this.loadingStatus.addCartLoading = 'product_id';
-
-                    // console.log(this.$refs.userModal);
                     this.$refs.userModal.close();
-                    
                     this.getCart(); // 重新渲染購物車的資訊 
                 })
-                // .catch(err => {
-                //     alert(err);
-                // })
+                .catch(err => {
+                    alert(err);
+                })
           },
           changeCartQty(item, qty = 1) {
             const api = `${baseUrl}/api/${apiPath}/cart/${item.id}`;
@@ -129,6 +128,7 @@ const app = createApp ({
             this.loadingStatus.cartQtyLoading = id;
             axios.delete(api)
                 .then(res => {
+                    alert('已成功移除商品');
                     console.log(res);
                     this.loadingStatus.cartQtyLoading = '';
                     this.getCart();
@@ -140,7 +140,6 @@ const app = createApp ({
                 .then(res => {
                     console.log(res);
                     this.carts = res.data.data;
-                    console.log(this.carts);
                 })
                 .catch((err) => {
                     alert(err.response.data.message);
