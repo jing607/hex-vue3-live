@@ -1,1 +1,0 @@
-import{_ as o,c as n,o as t,F as c,a as e}from"./index-BTCFwRSy.js";const s={},a=e("h1",null,"404",-1),r=e("p",null,"Page not found",-1);function _(l,d){return t(),n(c,null,[a,r],64)}const f=o(s,[["render",_]]);export{f as default};
