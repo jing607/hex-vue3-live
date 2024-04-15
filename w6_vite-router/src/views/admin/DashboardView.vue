@@ -3,18 +3,23 @@
   <nav>
       <RouterLink to="/admin/products">Products</RouterLink> |
       <RouterLink to="/admin/order">Order</RouterLink> |
-      <RouterLink to="/">Back to front</RouterLink>
-      |
-      <!-- <RouterLink to="/">Log out</RouterLink> -->
+      <RouterLink to="/">Back to front</RouterLink> |
+      <RouterLink to="/admin/coupons">Coupons</RouterLink> | 
+      <RouterLink to="/admin/articles">Articles</RouterLink> | 
       <a href="#" @click.prevent="signout">Sign out</a>
   </nav>
+  <ToastMessages />
   <!-- checkSuccess 後才可以看到 dashboard -->
   <RouterView v-if="checkSuccess"></RouterView>
 </template>
 
 <script>
+import { mapActions } from 'pinia'
+import { useToastMessageStore } from "@/stores/toastMessage";
 import axios from 'axios';
 const {VITE_URL} = import.meta.env
+
+import ToastMessages from '@/components/ToastMessages.vue';
 
 export default {
   data() {
@@ -22,7 +27,11 @@ export default {
       checkSuccess: false,
     }
   },
+  components: {
+    ToastMessages,
+  },
   methods: {
+    ...mapActions(useToastMessageStore, ['pushMessage']),
     checkUser() {
       const api = `${VITE_URL}/api/user/check`;
       // 從 cookie 中取得token

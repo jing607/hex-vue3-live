@@ -48,6 +48,14 @@ const router = createRouter({
           path: 'order',
           component: () => import('../views/admin/OrderView.vue')
         },
+        {
+          path: 'coupons',
+          component: () => import('../views/admin/CouponsView.vue')
+        },
+        {
+          path: 'articles',
+          component: () => import('../views/admin/AdminArticlesView.vue')
+        },
       ]
     },
 
@@ -55,14 +63,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       component: () => import('../views/NotFound.vue')
-    },
-    // 重新導向
-    // {
-    //   path: '/newPage/:pathMatch(.*)*',
-    //   redirect: {
-    //     name: 'HomeView',
-    //   }
-    // }
+    }
   ]
 })
 

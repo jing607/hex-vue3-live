@@ -1,5 +1,7 @@
 
 ## steps
+
+# WEEK 6
 1. 建立前後台的主要版型 v
     - 巢狀路由 v
 2. 前台路由建制 v
@@ -24,11 +26,55 @@ front:
     - veevalidate v
 11. vue-loading-overlay -x
 
+# WEEK 7
+back: 
+. add Coupon page v
+    - router v
 
-back: x
-12. product list (crud)
-13. order
-14. vue-loading-overlay
-15. 登出
+Product page: v
+1. get product list v
+2. 編輯 新產品 modal 打開 v
+3. 編輯 新產品 modal 傳送確認資料 api v
+    — 轉去的頁面，分為 建立新產品 或 編輯 v
+    - 更新時，依據 新增 與 編輯，決定要呼叫的 api v
+4. delete modal v
+5. pagination component v
+
++ toast message pinia v
+
+Order page : v
+6. get orders 
+    - api v
+    - 資訊顯示 v
+        > 日期 和 currency 的 filter v
+        > html 所有欄位的渲染 v
+7. OrderModal v
+    - open OrderModal v
+    - 確認修改 v
+    - del modal v
+ 
+Coupon page: v
+8. get coupons v
+    - api v
+    - 資訊顯示 v
+9. CouponModal v
+    - open CouponModal v
+        > 編輯 v
+        > 新增 v
+    - del modal v
+
+Article page:
+10. router
+    - add ArticlesView.vue & Modal
+    - build router
+11. get Articles 
+    - api 
+    - 資訊顯示 
+12. ArticleModal 
+    - open ArticleModal 
+        > 編輯 
+        > 新增 
+    - del modal 
+
 
 npm build
