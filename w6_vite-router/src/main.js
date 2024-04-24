@@ -7,6 +7,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 import Loading from 'vue-loading-overlay';
 
+import CKEditor from '@ckeditor/ckeditor5-vue';
 
 import { // 引入 VeeValidate 元件跟功能
     Field, Form, ErrorMessage, defineRule, configure,
@@ -44,6 +45,7 @@ app.config.globalProperties.$filters = {
 
 app.component('VueLoading', Loading);
 app.use(pinia);
+app.use(CKEditor);
 // 掛載 Global 的 VeeValidate 元件
 app.component('VField', Field);
 app.component('VForm', Form);

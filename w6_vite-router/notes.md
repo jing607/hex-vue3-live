@@ -63,18 +63,18 @@ Coupon page: v
         > 新增 v
     - del modal v
 
-Article page:
-10. router
-    - add ArticlesView.vue & Modal
-    - build router
-11. get Articles 
-    - api 
-    - 資訊顯示 
+Article page: v
+10. router v
+    - add ArticlesView.vue & Modal v
+    - build router v
+11. get Articles v
+    - api v
+    - 資訊顯示 v
 12. ArticleModal 
-    - open ArticleModal 
-        > 編輯 
-        > 新增 
-    - del modal 
+    - open ArticleModal v
+        > 編輯 v
+        > 新增 v
+    - del modal v
 
 
 npm build
